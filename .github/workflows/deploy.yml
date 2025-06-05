@@ -6,13 +6,14 @@ jobs:                      # Trabajos
     first_jobs:
         runs-on: ubuntu-latest
 
-        steps:
+        steps:                    # Pasos
          - name: Hola Mundo
            run: echo "Hola Mundo"
            
 
     second_jobs:
-        needs: first_jobs
+        if: ${{ github.ref == 'refs/heads/main' }}               # Contexto
+        needs: first_jobs         # Se agrega dependencia
         runs-on: ubuntu-latest
 
         steps:
